@@ -3,8 +3,6 @@ from random import randint
 root = Tk()
 root.geometry("1000x1000")
 root.attributes('-fullscreen', True)
-bg = PhotoImage(file="doge.png")
-root.title("CASINO JACKPOT")
 root.configure(bg='purple')
 Title = Label(root, text="CASINO JACKPOT", font=("Broadway", 70),fg='orange', bg='purple')
 Title.pack()
@@ -13,7 +11,7 @@ class Jackpot:
         self.b = 1000
         self.bett = 0
     def clicked(self,guess):
-        self.Random = randint(1, 10)
+        Random = randint(1, 10)
         last = Toplevel(root)
         last.title=("RESULT")
         last.attributes('-fullscreen', True)
@@ -22,7 +20,7 @@ class Jackpot:
         Result.place(x=625,y=100)
         Result1 = Label(last, text="THE NUMBER WAS : ",font=("Showcard Gothic", 20))
         Result1.place(x=600, y=270)
-        Result2 = Label(last, text=self.Random, font=("Showcard Gothic", 20))
+        Result2 = Label(last, text=Random, font=("Showcard Gothic", 20))
         Result2.place(x=900, y=270)
         Result3 = Label(last, text="YOU BALANCE IS : ", font=("Showcard Gothic", 20))
         Result3.place(x=625, y=380)
@@ -32,7 +30,7 @@ class Jackpot:
         Result5.place(x=505, y=325)
         Result6 = Label(last, font=("Showcard Gothic", 20))
         Result6.place(x=900, y=325)
-        if self.Random==guess:
+        if Random==guess:
            self.b = self.b + self.bett
            Result.configure(text=" YOU WON! ",fg="black",bg="green")
            last.configure(bg="green")
@@ -63,7 +61,6 @@ class Jackpot:
     def start(self):
         if self.b>0:
             new = Toplevel(root)
-            new.title("GAME")
             new.attributes('-fullscreen', True)
             new.configure(bg='#750000')
             title1 = Label(new, text="BET THE AMOUNT", font=("Stencil", 40),bg='#750000',fg="white",)
@@ -100,7 +97,7 @@ class Jackpot:
             button2.configure(height=2, width=10)
         else:
             obj.exitt(root)
-    def exitt(selfself,window):
+    def exitt(self,window):
         window.destroy()
         print("YOU CAN'T CONTINUE SINCE YOUR BALANCE IS ZERO\nTHANKS FOR PLAYING!")
     def newroot(self,bet):
@@ -188,11 +185,13 @@ class Jackpot:
         button2.configure(height=2, width=20)
         buttonn1.destroy()
         labeel.destroy()
+
+
 obj = Jackpot()
 buttonn1 = Button(root, text="START THE GAME", bg='green',font=("Britannic Bold",20), activebackground='white', command=obj.start)
 buttonn1.place(x=600, y=480)
 buttonn1.configure(height=2, width=20)
-button = Button(root, text="DISPLAY THE RULES", bg='yellow',font=("Britannic Bold",20), activebackground='white', command=obj.rules)
+button = Button(root, text="DISPLAY THE RULES", bg='yellow',font=("Britannic Bold",20), activebackground='white', command =obj.rules)
 button.configure(height=2, width=20)
 button.place(x=600, y=250)
 labeel = Label(root, text="OR",font=("Britannic Bold",25),bg="purple",fg="white")
